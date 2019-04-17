@@ -1,0 +1,66 @@
+package javaapplication23;
+
+import java.util.Scanner;
+
+public class JavaApplication23 {
+
+    public void msg() {
+        System.out.println("Enter the no. of words");
+        Scanner input = new Scanner(System.in);
+        int x = input.nextInt();
+        System.out.println("Enter the msg");
+        for (int d = 0; d < x; d++) {
+            String k;
+
+            k = input.nextLine();
+
+            int y = Integer.parseInt(k);
+            System.out.println(y);
+        }
+
+    }
+
+    public static int strToInt(String str) {
+        int i = 0;
+        int num = 0;
+        boolean isNeg = false;
+        System.out.println("Enter the msg");
+        if (str.charAt(0) == '-') {
+            isNeg = true;
+            i = 1;
+        }
+
+        //Process each character of the string;
+        while (i < str.length()) {
+            num *= 10;
+            num += str.charAt(i++) - '0'; //Minus the ASCII code of '0' to get the value of the charAt(i++).
+        }
+
+        if (isNeg) {
+            num = -num;
+        }
+        System.out.println(num);
+
+        return 0;
+    }
+    //Check for negative sign; if it's there, set the isNeg flag
+
+    public static void main(String[] args) {
+
+        JavaApplication23 crypt1 = new JavaApplication23();
+        try {
+            crypt1.msg();
+        } catch (NumberFormatException e) {
+            System.out.println("Enter the no. of words");
+            Scanner input = new Scanner(System.in);
+            int x = input.nextInt();
+
+            for (int f = 0; f < x; f++) {
+
+                String str = input.nextLine();
+                crypt1.strToInt(str);
+            }
+
+        }
+    }
+}
